@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/movies-website/static/css/main.f8ec5e22.chunk.css",
-    "main.js": "/movies-website/static/js/main.5628f685.chunk.js",
-    "main.js.map": "/movies-website/static/js/main.5628f685.chunk.js.map",
+    "main.js": "/movies-website/static/js/main.6aa6926f.chunk.js",
+    "main.js.map": "/movies-website/static/js/main.6aa6926f.chunk.js.map",
     "runtime-main.js": "/movies-website/static/js/runtime-main.4f67cf97.js",
     "runtime-main.js.map": "/movies-website/static/js/runtime-main.4f67cf97.js.map",
     "static/css/2.06648615.chunk.css": "/movies-website/static/css/2.06648615.chunk.css",
-    "static/js/2.fe86ae7e.chunk.js": "/movies-website/static/js/2.fe86ae7e.chunk.js",
-    "static/js/2.fe86ae7e.chunk.js.map": "/movies-website/static/js/2.fe86ae7e.chunk.js.map",
+    "static/js/2.b284c4b9.chunk.js": "/movies-website/static/js/2.b284c4b9.chunk.js",
+    "static/js/2.b284c4b9.chunk.js.map": "/movies-website/static/js/2.b284c4b9.chunk.js.map",
     "static/js/3.c69c38fb.chunk.js": "/movies-website/static/js/3.c69c38fb.chunk.js",
     "static/js/3.c69c38fb.chunk.js.map": "/movies-website/static/js/3.c69c38fb.chunk.js.map",
     "index.html": "/movies-website/index.html",
     "static/css/2.06648615.chunk.css.map": "/movies-website/static/css/2.06648615.chunk.css.map",
     "static/css/main.f8ec5e22.chunk.css.map": "/movies-website/static/css/main.f8ec5e22.chunk.css.map",
-    "static/js/2.fe86ae7e.chunk.js.LICENSE.txt": "/movies-website/static/js/2.fe86ae7e.chunk.js.LICENSE.txt",
+    "static/js/2.b284c4b9.chunk.js.LICENSE.txt": "/movies-website/static/js/2.b284c4b9.chunk.js.LICENSE.txt",
     "static/media/main.scss": "/movies-website/static/media/roboto-vietnamese-700-normal.3096f18a.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.4f67cf97.js",
     "static/css/2.06648615.chunk.css",
-    "static/js/2.fe86ae7e.chunk.js",
+    "static/js/2.b284c4b9.chunk.js",
     "static/css/main.f8ec5e22.chunk.css",
-    "static/js/main.5628f685.chunk.js"
+    "static/js/main.6aa6926f.chunk.js"
   ]
 }
