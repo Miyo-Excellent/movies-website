@@ -13,6 +13,7 @@ export interface HorizontalMovieListProps {
   data: MovieModel[];
   posterHeight: number;
   posterWidth: number;
+  onClick: (event: any, movie: MovieModel) => Promise<any>;
 }
 
 export const HorizontalMovieListTitle = styled(Typography)`
@@ -59,7 +60,8 @@ export default function HorizontalMovieList({
   data = horizontalMovieListDefaultMovies,
   isLoading = true,
   posterHeight = 300,
-  posterWidth = 300
+  posterWidth = 300,
+  onClick = async () => undefined
 }: HorizontalMovieListProps): JSX.Element {
   let content = (
     <HorizontalMovieListNoScroll className="horizontal_movie_list__no_scroll">
@@ -81,6 +83,7 @@ export default function HorizontalMovieList({
                 data={movie}
                 posterWidth={posterWidth}
                 posterHeight={posterHeight}
+                onClick={onClick}
               />
             </HorizontalMovieListItemContainer>
           ))}

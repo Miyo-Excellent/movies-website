@@ -1,10 +1,12 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from 'lodash';
+import { useHistory } from 'react-router-dom';
 
+import { MovieModel } from 'core/models';
 import { HorizontalMovieList, SearchBar } from 'components/common';
 import { ThemesState } from 'modules/themes';
-import { getPopular, getSearch } from 'modules/dashboard/repositories';
 import {
   DashboardState,
   setNowPlayingMovies,
@@ -12,9 +14,12 @@ import {
   setSearchMovies,
   setUpcomingMovies
 } from 'modules/dashboard/redux';
-import { getNowPlaying } from 'modules/dashboard/repositories';
-import getUpcoming from '../repositories/movies/getUpcoming';
-import { isEmpty } from 'lodash';
+import {
+  getPopular,
+  getSearch,
+  getNowPlaying,
+  getUpcoming
+} from 'modules/dashboard/repositories';
 
 export interface DashboardScreenProps {}
 
@@ -24,7 +29,8 @@ export const DashboardScreenContainer = styled.main`
   min-width: 100%;
 `;
 
-function DashboardScreen({}: DashboardScreenProps): JSX.Element {
+export default function DashboardScreen({}: DashboardScreenProps): JSX.Element {
+  const history = useHistory();
   const dispatcher = useDispatch();
 
   const [query, setQuery] = useState('');
@@ -89,6 +95,16 @@ function DashboardScreen({}: DashboardScreenProps): JSX.Element {
     !!dashboardMovies?.search &&
     !!dashboardMovies?.search?.data;
 
+  const onClickMovie = async (event: any, movie: MovieModel) => {
+    if (movie) {
+      const path: string = `/movie/${movie.id}`;
+
+      event?.preventDefault();
+
+      history?.push(path, movie);
+    }
+  };
+
   return (
     <DashboardScreenContainer className="dashboard_screen">
       <SearchBar query={query} setQuery={setQuery} />
@@ -101,6 +117,7 @@ function DashboardScreen({}: DashboardScreenProps): JSX.Element {
           error={dashboardMovies.search.error}
           data={dashboardMovies.search.data}
           isLoading={dashboardMovies.search.isLoading}
+          onClick={onClickMovie}
         />
       )}
 
@@ -113,6 +130,7 @@ function DashboardScreen({}: DashboardScreenProps): JSX.Element {
             error={dashboardMovies.popular.error}
             data={dashboardMovies.popular.data}
             isLoading={dashboardMovies.popular.isLoading}
+            onClick={onClickMovie}
           />
 
           <HorizontalMovieList
@@ -122,6 +140,7 @@ function DashboardScreen({}: DashboardScreenProps): JSX.Element {
             error={dashboardMovies.nowPlaying.error}
             data={dashboardMovies.nowPlaying.data}
             isLoading={dashboardMovies.nowPlaying.isLoading}
+            onClick={onClickMovie}
           />
 
           <HorizontalMovieList
@@ -131,11 +150,10 @@ function DashboardScreen({}: DashboardScreenProps): JSX.Element {
             error={dashboardMovies.upcoming.error}
             data={dashboardMovies.upcoming.data}
             isLoading={dashboardMovies.upcoming.isLoading}
+            onClick={onClickMovie}
           />
         </>
       )}
     </DashboardScreenContainer>
   );
 }
-
-export default forwardRef(DashboardScreen);

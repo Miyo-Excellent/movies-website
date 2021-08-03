@@ -10,6 +10,7 @@ export interface MovieCardProps {
   data: MovieModel;
   posterHeight: number;
   posterWidth: number;
+  onClick: (event: any, movie: MovieModel) => Promise<any>;
 }
 
 export interface MovieCardContainerProps {
@@ -18,7 +19,7 @@ export interface MovieCardContainerProps {
   posterWidth: number;
 }
 
-export const Ripple = styled(ButtonBase)`
+export const Ripple = styled<any>(ButtonBase)`
   margin: 0;
   padding: 0;
   display: grid;
@@ -37,13 +38,13 @@ export const MovieCardContainer = styled.div`
   cursor: pointer;
 
   &:hover {
-    .movie_card_cover__details {
+    .movie_card_cover__movie {
       visibility: visible;
     }
   }
 `;
 
-export const MovieCardCoverDetails = styled.div`
+export const MovieCardCoverMovie = styled.div`
   transition: all linear 100ms;
   visibility: hidden;
   //  background: var(--movie-card-content-container-hover-background-color);
@@ -91,10 +92,11 @@ export const MovieCardTitle = styled(Typography)`
 export default function MovieCard({
   data,
   posterHeight = 450,
-  posterWidth = 300
+  posterWidth = 300,
+  onClick = async () => undefined
 }: MovieCardProps) {
   return (
-    <Ripple focusRipple>
+    <Ripple focusRipple onClick={async (event: any) => onClick(event, data)}>
       <MovieCardContainer
         posterWidth={posterWidth}
         posterHeight={posterHeight}
@@ -107,7 +109,7 @@ export default function MovieCard({
             className="movie_card_cover__image_container__image"
           />
 
-          <MovieCardCoverDetails className="movie_card_cover__details"></MovieCardCoverDetails>
+          <MovieCardCoverMovie className="movie_card_cover__movie"></MovieCardCoverMovie>
         </MovieCardCoverImageContainer>
 
         <MovieCardContentContainer className="movie_card__content_container">

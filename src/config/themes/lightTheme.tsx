@@ -8,6 +8,9 @@ export default {
   menuItemHoverBackgroundColor: '#2F313A',
   menuItemHoverTextColor: '#FFFFFF',
   menuItemTextColor: '#1C1F2A',
+  //  Hero
+  //  Hero Item
+  heroItemBackgroundColor: 'rgba(0, 0, 0, 0.4)',
   //  Movie Card
   movieCardContentContainerBackgroundColor: '#FFFFFF',
   movieCardContentContainerHoverBackgroundColor: 'rgba(28, 31, 42, 0.7)',

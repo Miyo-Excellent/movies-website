@@ -10,6 +10,9 @@ export interface ThemeData {
   menuItemHoverBackgroundColor: string;
   menuItemHoverTextColor: string;
   menuItemTextColor: string;
+  //  Hero
+  //  Hero Item
+  heroItemBackgroundColor: string;
   //  Movie Card
   movieCardContentContainerHoverBackgroundColor: string;
   movieCardContentContainerBackgroundColor: string;

@@ -15,7 +15,7 @@ export default function App(): JSX.Element {
     <DataManagerProvider>
       <Router>
         <ImaxLayout>
-          <Navigation blackList={['Details']} />
+          <Navigation blackList={['Movie']} />
 
           <Navigator routes={handlers} />
         </ImaxLayout>

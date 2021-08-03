@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import { ComponentClass, FC } from 'react';
 import DashboardHandlers from './DashboardHandlers';
-import DetailsHandlers from './DetailsHandlers';
+import MovieHandlers from './MovieHandlers';
 import NotFountHandlers from './NotFountHandlers';
 
 export interface HandlerType {
   path?: string;
   name?: string;
-  component: FC<any>;
+  component: FC<any> | JSX.Element | ComponentClass;
   exact?: boolean;
   strict?: boolean;
   sensitive?: boolean;
@@ -14,8 +14,8 @@ export interface HandlerType {
 
 export const handlersCollection: HandlerType[] = [
   DashboardHandlers,
-  DetailsHandlers,
+  MovieHandlers,
   NotFountHandlers
 ];
 
-export { DetailsHandlers, DashboardHandlers, NotFountHandlers };
+export { MovieHandlers, DashboardHandlers, NotFountHandlers };

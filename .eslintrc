@@ -50,6 +50,7 @@
     "react/prop-types": "off",
     "simple-import-sort/imports": "off",
     "sonarjs/no-small-switch": "warn",
+    "unicorn/no-useless-undefined": "off",
     "unicorn/prefer-query-selector": "off",
     "unicorn/filename-case": "off",
     "unicorn/prefer-module": "off",
