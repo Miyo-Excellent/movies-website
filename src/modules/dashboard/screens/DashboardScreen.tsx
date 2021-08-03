@@ -5,6 +5,7 @@ import { isEmpty } from 'lodash';
 import { useHistory } from 'react-router-dom';
 
 import { MovieModel } from 'core/models';
+import { routePrefix } from 'config';
 import { HorizontalMovieList, SearchBar } from 'components/common';
 import { ThemesState } from 'modules/themes';
 import {
@@ -96,10 +97,10 @@ export default function DashboardScreen({}: DashboardScreenProps): JSX.Element {
     !!dashboardMovies?.search?.data;
 
   const onClickMovie = async (event: any, movie: MovieModel) => {
-    if (movie) {
-      const path: string = `/movie/${movie.id}`;
+    event?.preventDefault();
 
-      event?.preventDefault();
+    if (movie) {
+      const path: string = `${routePrefix}movie/${movie.id}`;
 
       history?.push(path, movie);
     }

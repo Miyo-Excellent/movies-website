@@ -3,7 +3,7 @@ import {HandlerType} from '.';
 import {routePrefix} from "..";
 
 const MovieHandlers: HandlerType = {
-  path: `${routePrefix}/movie/:id`,
+  path: `${routePrefix}movie/:id`,
   name: 'Movie',
   component: MovieScreen,
   exact: false,
