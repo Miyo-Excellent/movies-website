@@ -17,5 +17,6 @@ export const handlersCollection: HandlerType[] = [
   MovieHandlers,
   NotFountHandlers
 ];
+debugger
 
 export { MovieHandlers, DashboardHandlers, NotFountHandlers };
