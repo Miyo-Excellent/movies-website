@@ -7,17 +7,22 @@ import { reducers } from '.';
 export function getStore() {
   const middlewares = applyMiddleware(thunk);
 
-  if (isDevelopment()) {
-    const withDevTools =
-      // @ts-ignore
-      typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-
+  const reduxDevtoolsExtensionCompose: any =
     // @ts-ignore
-    const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    });
+    window?.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || undefined;
 
-    const composeEnhancers = withDevTools ? devTools : compose;
+  if (
+    isDevelopment() &&
+    window &&
+    typeof window === 'object' &&
+    reduxDevtoolsExtensionCompose
+  ) {
+    const devTools =
+      reduxDevtoolsExtensionCompose({
+        // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+      }) || null;
+
+    const composeEnhancers = devTools ? devTools : compose;
 
     const enhancer = composeEnhancers(
       middlewares
