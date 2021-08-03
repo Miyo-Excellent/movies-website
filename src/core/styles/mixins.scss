@@ -1,0 +1,37 @@
+/*
+@mixin font-face(
+  $name,
+  $path,
+  $ext: "ttf",
+  $variants: (
+    "Black"
+    "BlackItalic"
+    "Bold"
+    "BoldItalic"
+    "Italic"
+    "Light"
+    "LightItalic"
+    "Medium"
+    "MediaumItalic"
+    "Regular"
+    "RegularItalic"
+    "Thin"
+    "ThinItalic"
+  )
+) {
+  $sources: ();
+
+  @each $variant in $variants {
+    $url: $path + '/' + $name + "-" + $variant + "." + "?";
+
+    $value: url($url) format($ext);
+
+    append($sourece, $value, $separator: auto);
+  }
+
+  @font-face {
+    font-family: $name;
+    src: $sources;
+  }
+}
+*/

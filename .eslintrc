@@ -1,0 +1,58 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "plugins": ["simple-import-sort"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:security/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "globals": {
+    "React": true,
+    "google": true,
+    "mount": true,
+    "mountWithRouter": true,
+    "shallow": true,
+    "shallowWithRouter": true,
+    "context": true,
+    "expect": true,
+    "jsdom": true,
+    "JSX": true
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "no-empty-pattern": "off",
+    "no-async-promise-executor": "off",
+    "sonarjs/no-nested-template-literals": "off",
+    "prettier/prettier": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "simple-import-sort/imports": "off",
+    "sonarjs/no-small-switch": "warn",
+    "unicorn/prefer-query-selector": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prevent-abbreviations": "off"
+  }
+}
