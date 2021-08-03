@@ -1,4 +1,5 @@
 import { ComponentClass, FC } from 'react';
+
 import DashboardHandlers from './DashboardHandlers';
 import MovieHandlers from './MovieHandlers';
 import NotFountHandlers from './NotFountHandlers';
@@ -17,6 +18,5 @@ export const handlersCollection: HandlerType[] = [
   MovieHandlers,
   NotFountHandlers
 ];
-debugger
 
 export { MovieHandlers, DashboardHandlers, NotFountHandlers };

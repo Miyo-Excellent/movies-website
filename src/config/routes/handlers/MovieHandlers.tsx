@@ -1,10 +1,9 @@
 import { MovieScreen } from 'modules/movie';
-import { isDevelopment } from 'utils';
-import { HandlerType } from '.';
-import pkg from '../../../../package.json';
+import {HandlerType} from '.';
+import {routePrefix} from "..";
 
 const MovieHandlers: HandlerType = {
-  path: `${isDevelopment() ? pkg.name : ''}/movie/:id`,
+  path: `${routePrefix}/movie/:id`,
   name: 'Movie',
   component: MovieScreen,
   exact: false,
