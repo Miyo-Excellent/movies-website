@@ -25,6 +25,11 @@ export const ImaxLayoutContainer: FC<ImaxLayoutContainerProps> = styled.div`
       theme
     }: ImaxLayoutContainerProps) =>
       theme?.current?.menuWidth || menuWidth}px 1fr;
+
+  @media all and (max-width: 765px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 `;
 
 export default function ImaxLayout({

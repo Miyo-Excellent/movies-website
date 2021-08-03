@@ -14,6 +14,14 @@ export interface NavigationProps {
 const NavigationContainer = styled.nav`
   display: grid;
   background: var(--menu-container-background-color);
+
+  @media all and (max-width: 765px) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+  }
 `;
 
 const NavigationList = styled.ul`

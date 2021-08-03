@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import { MovieModel } from 'core/models';
 import { routePrefix } from 'config';
-import { HorizontalMovieList, SearchBar } from 'components/common';
+import { HorizontalMovieList, MovieCard, SearchBar } from 'components/common';
 import { ThemesState } from 'modules/themes';
 import {
   DashboardState,
@@ -21,6 +21,8 @@ import {
   getNowPlaying,
   getUpcoming
 } from 'modules/dashboard/repositories';
+import SearchResults from '../../../components/common/SearchResults';
+import { nanoid } from 'nanoid';
 
 export interface DashboardScreenProps {}
 
@@ -28,6 +30,7 @@ export const DashboardScreenContainer = styled.main`
   width: 100%;
   max-width: 100%;
   min-width: 100%;
+  padding: 0 0 70px 0
 `;
 
 export default function DashboardScreen({}: DashboardScreenProps): JSX.Element {
@@ -111,15 +114,11 @@ export default function DashboardScreen({}: DashboardScreenProps): JSX.Element {
       <SearchBar query={query} setQuery={setQuery} />
 
       {hasQueryData && (
-        <HorizontalMovieList
-          title="Results"
-          posterHeight={current?.movieCardPosterHeight || 450}
-          posterWidth={current?.movieCardPosterWidth || 300}
-          error={dashboardMovies.search.error}
-          data={dashboardMovies.search.data}
-          isLoading={dashboardMovies.search.isLoading}
-          onClick={onClickMovie}
-        />
+        <SearchResults>
+          {dashboardMovies.search.data.map((data: MovieModel) => (
+            <MovieCard key={nanoid()} data={data} onClick={onClickMovie} />
+          ))}
+        </SearchResults>
       )}
 
       {!hasQueryData && (

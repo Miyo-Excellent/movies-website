@@ -8,8 +8,8 @@ import { apiPaths } from '../../constants';
 
 export interface MovieCardProps {
   data: MovieModel;
-  posterHeight: number;
-  posterWidth: number;
+  posterHeight?: number;
+  posterWidth?: number;
   onClick: (event: any, movie: MovieModel) => Promise<any>;
 }
 
